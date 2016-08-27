@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{
+		margin:0;
+		padding:0;
+	}	
+
+	</style>
+</head>
+<body>
+
+
+<script>
+	function fullScreen(element){
+var newdivs=document.createElement(element);
+//newdivs.innerHTML="div is creating a box";
+newdivs.style.height= "60vh";
+newdivs['style']['width']= "60vw";
+document.body.appendChild(newdivs);
+return newdivs;
+
+}
+
+function input(inputType,DomElement,callback){
+    //Adding Event Listener
+DomElement.addEventListener(inputType,function(event){
+    console.log(event);
+var x= event.clientX;
+var y= event.clientY;
+callback(DomElement,x,y);
+});
+}
+function output(element,x,y){
+   element.textContent= x+ ', '+y;
+element.style.backgroundColor = 'rgb(' + x +', '+ y +', 100)';
+ 
+}
+input('mousemove',fullScreen('DIV'),output);
+
+
+</script>
+
+</body>
+</html>
+
+
